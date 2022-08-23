@@ -1,0 +1,22 @@
+.PhppONY: all clean help
+
+output: UTrelloInterface.o main.o List.o Task.o User.o 
+	g++ UTrelloInterface.o main.o List.o Task.o User.o -o output
+
+main.o: main.cpp UTrelloInterface.hpp User.hpp List.hpp Task.hpp
+	g++ -c main.cpp
+
+UTrelloInterface.o: UTrelloInterface.cpp UTrelloInterface.hpp User.hpp List.hpp Task.hpp
+	g++ -c UTrelloInterface.cpp
+
+User.o: User.cpp User.hpp Task.hpp
+	g++ -c User.cpp
+
+List.o: List.cpp List.hpp Task.hpp
+	g++ -c List.cpp
+
+Task.o: Task.cpp Task.hpp
+	g++ -c Task.cpp
+
+clean:
+	rm -f *.o UTrelloInterface
